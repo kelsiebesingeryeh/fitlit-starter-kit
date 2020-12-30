@@ -26,6 +26,11 @@ const todayActivity = document.querySelector('.today-activity')
 const avgActivityStats = document.querySelector('.avg-activity-stats')
 const pieChartStat = document.querySelector('.pie-chart')
 
+const toggleSwitch = document.querySelector(
+  '.theme-switch input[type="checkbox"]'
+);
+
+
 const userRepo = new UserRepo(
   userData,
   sleepData,
@@ -84,6 +89,17 @@ viewUserButton.addEventListener('click', (event) => {
   clearDisplays()
   return currentUser
 })
+
+toggleSwitch.addEventListener('change', switchTheme, false);
+
+function switchTheme(element) {
+  if (element.target.checked) {
+    document.documentElement.setAttribute("data-theme", "light");
+  } else {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
+}
+
 
 function toggleElement(element) {
   element.classList.toggle('hidden')

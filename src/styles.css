@@ -1,47 +1,4 @@
-body {
-  background-color: #202029;
-  background-color: var(--color-primary, #202029);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Raleway', sans-serif;
-}
-
-:root[color-mode="light"] {
-  --color-primary: #fff;
-  --color-secondary: #E0E0FF;
-  --color-tertiary: #C1C2DB;
-  --icon1 #A84828;
-  --icon2 #A88D22;
-  --icon3 #45A866;
-  --font-color: #000;
-  --table-lines: #4F81C2;
-}
-
-/* LIGHT COLORS 
-primary: 
-secondary: #E0E0FF (button color and header color)
-tertiary: #C1C2DB (daily stats/current stats section)
-icon1 #A84828;
-icon2 #A88D22;
-icon3 #45A866;
-tableLines: #4F81C2;
-*/
-
-
-/* DARK COLORS
-primary: #202029 (background)
-secondary: #6D71E3 (button color and header color) 
-tertiary: #202261 (daily stats/current stats section) 
-icon1 #FA6A3C;
-icon2 #F0CB30;
-icon3 #61ED90;
-text: #FFF 
-tableLines: #65A4F7
-*/
-
-
-:root[color-mode="dark"] {
+:root {
   --color-primary: #202029;
   --color-secondary: #6D71E3;
   --color-tertiary: #202261;
@@ -52,17 +9,41 @@ tableLines: #65A4F7
   --table-lines: #65A4F7
 }
 
+[data-theme="light"] {
+  --color-primary: #fff;
+  --color-secondary: #F0F0FC;
+  --color-tertiary: #E8E8EF;
+  --icon1 #A84828;
+  --icon2 #A88D22;
+  --icon3 #45A866;
+  --font-color: #000;
+  --table-lines: #4F81C2;
+}
+
+/* ENTIRE BODY */
+
+body {
+  background-color: #202029;
+  background-color: var(--color-primary, #FFF);
+  color: white;
+  color: var(--font-color, #000);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Raleway', sans-serif;
+}
+
 /* TOGGLE SWITCH STYLES */
 
 .theme-switch-wrapper {
   display: flex;
   align-items: center;
-
+  justify-content: flex-end;
+}
   em {
     margin-left: 10px;
     font-size: 1rem;
   }
-}
+
 
 .theme-switch {
   display: inline-block;
@@ -113,11 +94,15 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+/* DROP DOWN MENU */
+
 .chooser {
   margin: auto;
   padding: 5%;
   width: 100%;
 }
+
+/* VIEW DATA BUTTON */
 
 button {
   background-color: #6D71E3;
@@ -128,6 +113,8 @@ button {
   padding: 2%;
 }
 
+/* FORM */
+
 form {
   align-items: center;
   display: flex;
@@ -135,8 +122,11 @@ form {
   margin: auto;
 }
 
+/* HEADER */
+
 header {
   background-color: #6D71E3;
+  background-color: var(--color-secondary, #F0F0FC);
   border-radius: 5px;
   height: auto;
   margin-left: 10%;
@@ -168,8 +158,11 @@ h2 {
   margin-left: 5%;
 }
 
+/* STATS SECTION */
+
 .daily-stats {
   background-color: #202261;
+  background-color: var(--color-tertiary, #E8E8EF);
   border-radius: 5px;
   height: 100%;
   margin: auto;
@@ -188,6 +181,7 @@ h2 {
 .current-stats {
   align-items: center;
   background-color: #202261;
+  background-color: var(--color-tertiary, #E8E8EF);
   border-radius: 5px;
   display: flex;
   flex-direction: row;
@@ -238,7 +232,8 @@ h2 {
 }
 
 .success {
-  background-color: #202261
+  background-color: #202261;
+  background-color: var(--color-secondary, #F0F0FC);
 }
 
 .user-stats {
